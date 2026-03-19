@@ -35,9 +35,6 @@ yarn-error.log*
 *.sqlite
 *.sqlite-journal
 
-# IDE
-.vscode
-.idea
-
-# OS
-Thumbs.db
+# typescript
+*.tsbuildinfo
+next-env.d.ts

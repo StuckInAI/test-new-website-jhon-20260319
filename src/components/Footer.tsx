@@ -1,22 +1,42 @@
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-10 px-4 md:px-8">
-      <div className="container mx-auto max-w-6xl">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-6 md:mb-0">
-            <h3 className="text-2xl font-bold">Landing Page App</h3>
-            <p className="text-gray-400 mt-2">Built with Next.js & TypeScript</p>
+    <footer className="bg-gray-900 text-white py-8 mt-12">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 className="text-2xl font-bold mb-4">PhoneStore</h3>
+            <p>Your trusted destination for the latest smartphones.</p>
           </div>
-          <div className="text-center md:text-right">
-            <p className="text-gray-400">&copy; {new Date().getFullYear()} Your Company. All rights reserved.</p>
-            <p className="text-gray-400 mt-2">Deployable on Coolify with Docker</p>
+          <div>
+            <h4 className="text-xl font-semibold mb-4">Quick Links</h4>
+            <ul className="space-y-2">
+              <li>
+                <a href="/products" className="hover:text-primary-500">
+                  Products
+                </a>
+              </li>
+              <li>
+                <a href="/cart" className="hover:text-primary-500">
+                  Cart
+                </a>
+              </li>
+              <li>
+                <a href="/dashboard" className="hover:text-primary-500">
+                  Dashboard
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-xl font-semibold mb-4">Contact Us</h4>
+            <p>support@phonestore.com</p>
+            <p>+1 234 567 890</p>
           </div>
         </div>
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>This is a sample fullstack landing page application for demonstration purposes.</p>
-          <p className="mt-2">Database: SQLite | ORM: TypeORM | Styling: Tailwind CSS</p>
+        <div className="border-t border-gray-700 mt-8 pt-8 text-center">
+          <p>&copy; {new Date().getFullYear()} PhoneStore. All rights reserved.</p>
         </div>
       </div>
     </footer>
-  )
+  );
 }

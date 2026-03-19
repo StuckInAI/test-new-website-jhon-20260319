@@ -1,24 +1,26 @@
-import 'reflect-metadata'
-import { DataSource } from 'typeorm'
-import { Contact } from './entity/Contact'
+import { DataSource } from 'typeorm';
+import { User } from '@/entities/User';
+import { Product } from '@/entities/Product';
+import { Cart } from '@/entities/Cart';
+import { Order } from '@/entities/Order';
+import { Review } from '@/entities/Review';
 
-const databasePath = process.env.DATABASE_URL || './database.sqlite'
+const databaseUrl = process.env.DATABASE_URL || 'file:./database.sqlite';
 
 export const AppDataSource = new DataSource({
   type: 'sqlite',
-  database: databasePath,
-  synchronize: process.env.NODE_ENV !== 'production', // Auto-create tables in dev
+  database: databaseUrl.replace('file:', '').trim(),
+  synchronize: true,
   logging: false,
-  entities: [Contact],
+  entities: [User, Product, Cart, Order, Review],
   migrations: [],
   subscribers: [],
-})
+});
 
 // Initialize database connection
-AppDataSource.initialize()
-  .then(() => {
-    console.log('Database connection initialized')
-  })
-  .catch((error) => {
-    console.error('Error initializing database:', error)
-  })
+export async function initializeDatabase() {
+  if (!AppDataSource.isInitialized) {
+    await AppDataSource.initialize();
+    console.log('Database initialized');
+  }
+}

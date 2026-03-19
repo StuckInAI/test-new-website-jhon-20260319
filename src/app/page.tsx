@@ -1,15 +1,15 @@
-import Hero from '@/components/Hero'
-import Features from '@/components/Features'
-import ContactForm from '@/components/ContactForm'
-import Footer from '@/components/Footer'
+import Hero from '@/components/Hero';
+import FeaturedProducts from '@/components/FeaturedProducts';
+import Categories from '@/components/Categories';
+import Promotions from '@/components/Promotions';
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <main className="min-h-screen">
       <Hero />
-      <Features />
-      <ContactForm />
-      <Footer />
-    </div>
-  )
+      <FeaturedProducts />
+      <Categories />
+      <Promotions />
+    </main>
+  );
 }
